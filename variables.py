@@ -44,7 +44,7 @@ mflocation=page_soup.find('div',{'id':'divMFNameScheme'})
 mfoptions=mflocation.find_all("option")
 mutual_funds=[y.text for y in mfoptions]
 mutual_funds.pop(0)
-mutual_funds.pop(0)
+#mutual_funds.pop(0)
 
 
 #xpath of mutual funds
@@ -53,7 +53,7 @@ for i in range(len(mutual_funds)):
     xp_mutual_fund.append(f"//a[contains(text(),'{mutual_funds[i]}')]")
 xp_mutual_fund.pop(26)
 xp_mutual_fund[26] = "//li[27]//a[1]"
-xp_mutual_fund.pop(0)
+#xp_mutual_fund.pop(0)
 
 
 
