@@ -16,7 +16,7 @@ year=[x.text for x in yroptions]
 # print(year)
 #year=['2020-2021','2019-2020', '2018-2019']
 
-#month_dictionary- Add new month after every month manually
+#month_dictionary- Add new month after every 1 month manually
 month_dictionary={
     '2018-2019':['March-2019','February-2019','January-2019','December-2018','November-2018','October-2018','September-2018','August-2018','July-2018','June-2018','May-2018','April-2018','January-2018'],
     '2019-2020':['April-2020','March-2020','February-2020','January-2020','December-2019','November-2019','October-2019','September-2019','August-2019','July-2019','June-2019','May-2019','April-2019'],
@@ -44,10 +44,11 @@ mflocation=page_soup.find('div',{'id':'divMFNameScheme'})
 mfoptions=mflocation.find_all("option")
 mutual_funds=[y.text for y in mfoptions]
 mutual_funds.pop(0)
-#mutual_funds.pop(0)
+
+print(len(mutual_funds))
 
 
-#xpath of mutual funds
+#xpath of mutual funds because 'mahindra mutual fund' is in 'kotak mahindra mutual fund'.. so we are writing xpath using 'contains' for all mf's except mahindra mutual fund.
 xp_mutual_fund=[]
 for i in range(len(mutual_funds)):
     xp_mutual_fund.append(f"//a[contains(text(),'{mutual_funds[i]}')]")
